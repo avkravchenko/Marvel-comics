@@ -26,6 +26,7 @@ export default {
   right: 10px;
   padding: 20px;
   background-color: #f5f4f4;
+  z-index: 1;
 
   .exit {
     all: unset;
