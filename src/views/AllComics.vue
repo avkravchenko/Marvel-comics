@@ -60,10 +60,14 @@ export default {
   watch: {
     "$route.query.page"(newPage) {
       this.setPage(newPage);
+      console.log(newPage);
       this.getData();
     },
     "$route.query.format"(newFilter) {
       this.setFilter(newFilter);
+      this.getData();
+    },
+    "$route.query.search"() {
       this.getData();
     },
   },

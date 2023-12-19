@@ -86,8 +86,8 @@ export default defineComponent({
     getId() {
       this.id = this.$route.query.id as string;
     },
-    async getComics() {
-      await this.fetchComics(this.id);
+    getComics() {
+      this.fetchComics(this.id);
     },
   },
   mounted() {
