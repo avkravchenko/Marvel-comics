@@ -12,9 +12,6 @@ export const getters: GetterTree<ComicsState, RootState> = {
   filter(state) {
     return state.filter;
   },
-  isLoad(state) {
-    return state.isLoad;
-  },
   total(state) {
     return state.total;
   },
