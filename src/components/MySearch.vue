@@ -3,7 +3,7 @@
     <form class="search-form" @submit.prevent="handleSubmit">
       <input
         class="search-input"
-        v-model="inputValue"
+        v-model.trim="inputValue"
         type="text"
         id="search"
         name="search"
@@ -34,12 +34,13 @@ export default {
     ...mapActions("comicsModule", ["fetchData"]),
 
     handleSubmit() {
+      if (this.inputValue === "") return;
       this.$router.replace({ path: "/", query: { search: this.inputValue } });
       this.setSearch(this.inputValue);
       this.inputValue = "";
       this.setIsLoad(true);
       this.fetchData();
-      this.setModal();
+      this.setModal(false);
     },
   },
 };

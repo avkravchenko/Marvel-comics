@@ -3,7 +3,7 @@
     <div class="logo">marvel</div>
     <MySearch v-if="windowSize >= 551" />
     <MyModal v-if="isModal"><MySearch /></MyModal>
-    <div @click="setModal" v-if="windowSize <= 550" class="search-icon">
+    <div @click="setModal(true)" v-if="windowSize <= 550" class="search-icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 50 50"
@@ -31,7 +31,6 @@ export default {
   data() {
     return {
       windowSize: window.innerWidth,
-      modal: false,
     };
   },
   mounted() {

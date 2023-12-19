@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
     <slot></slot>
-    <button @click="setModal" class="exit">✕</button>
+    <button @click="setModal(false)" class="exit">✕</button>
   </div>
 </template>
 

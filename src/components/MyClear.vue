@@ -1,10 +1,19 @@
 <template>
-  <div @click="clearAllFilters" class="clear">Clear all filters</div>
+  <div class="button-wrapper">
+    <MyButton :empty="true" @click="clearAllFilters"
+      >Clear all filters</MyButton
+    >
+  </div>
 </template>
 
 <script lang="ts">
 import { mapMutations } from "vuex";
+import MyButton from "./MyButton.vue";
+
 export default {
+  components: {
+    MyButton,
+  },
   methods: {
     ...mapMutations("comicsModule", ["setSearch"]),
     clearAllFilters() {
@@ -16,10 +25,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.clear {
-  width: 100%;
+.button-wrapper {
   text-align: center;
-  color: rgb(0, 114, 208);
   margin-bottom: 50px;
 }
 </style>
