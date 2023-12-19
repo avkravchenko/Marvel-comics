@@ -12,9 +12,6 @@ export const mutations: MutationTree<ComicsState> = {
   setFilter(state: ComicsState, filter: string) {
     state.filter = filter;
   },
-  setIsLoad(state: ComicsState, isLoad: boolean) {
-    state.isLoad = isLoad;
-  },
   setSearch(state: ComicsState, search: string) {
     state.search = search;
   },

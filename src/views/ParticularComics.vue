@@ -1,4 +1,5 @@
 <template>
+  <MyLoader v-if="isLoad" />
   <h1 class="title">{{ comicsTitle }}</h1>
 
   <div class="comics-wrapper">
@@ -51,16 +52,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 import MyCarousel from "@/components/MyCarousel.vue";
 import MyReader from "@/components/MyReader.vue";
 import MyButton from "@/components/MyButton.vue";
+import MyLoader from "@/components/MyLoader.vue";
 
 export default defineComponent({
   components: {
     MyCarousel,
     MyReader,
     MyButton,
+    MyLoader,
   },
   data() {
     return {
@@ -79,14 +82,17 @@ export default defineComponent({
       "comsicsPages",
       "comsicsPrice",
     ]),
+    ...mapGetters(["isLoad"]),
   },
   methods: {
     ...mapActions("particularComicsModule", ["fetchComics"]),
+    ...mapMutations(["setLoading"]),
 
     getId() {
       this.id = this.$route.query.id as string;
     },
     getComics() {
+      this.setLoading(true);
       this.fetchComics(this.id);
     },
   },

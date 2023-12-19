@@ -21,7 +21,7 @@ export const actions: ActionTree<ComicsState, RootState> = {
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
-      commit("setIsLoad", false);
+      commit("setLoading", false, { root: true });
     }
   }, 300),
 };

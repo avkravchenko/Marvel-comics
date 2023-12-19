@@ -41,19 +41,16 @@ export default {
     MyClear,
   },
   computed: {
-    ...mapGetters("comicsModule", ["comics", "page", "filter", "isLoad"]),
+    ...mapGetters("comicsModule", ["comics", "page", "filter"]),
+    ...mapGetters(["isLoad"]),
   },
   methods: {
     ...mapActions("comicsModule", ["fetchData"]),
-    ...mapMutations("comicsModule", [
-      "setPage",
-      "setFilter",
-      "setIsLoad",
-      "setSearch",
-    ]),
+    ...mapMutations("comicsModule", ["setPage", "setFilter", "setSearch"]),
+    ...mapMutations(["setLoading"]),
 
     getData() {
-      this.setIsLoad(true);
+      this.setLoading(true);
       this.fetchData();
     },
   },

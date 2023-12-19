@@ -9,7 +9,6 @@ const state: ComicsState = {
   comics: null,
   page: null,
   filter: null,
-  isLoad: false,
   search: null,
   total: null,
 };

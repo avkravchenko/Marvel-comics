@@ -29,7 +29,8 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("comicsModule", ["setSearch", "setIsLoad"]),
+    ...mapMutations("comicsModule", ["setSearch"]),
+    ...mapMutations(["setLoading"]),
     ...mapMutations(["setModal"]),
     ...mapActions("comicsModule", ["fetchData"]),
 
@@ -38,7 +39,7 @@ export default {
       this.$router.replace({ path: "/", query: { search: this.inputValue } });
       this.setSearch(this.inputValue);
       this.inputValue = "";
-      this.setIsLoad(true);
+      this.setLoading(true);
       this.fetchData();
       this.setModal(false);
     },

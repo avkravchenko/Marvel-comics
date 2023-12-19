@@ -11,6 +11,8 @@ export const actions: ActionTree<ParticularComicTypes, RootState> = {
       commit("setComicsData", comicsData);
     } catch (error) {
       console.error(error);
+    } finally {
+      commit("setLoading", false, { root: true });
     }
   },
 };

@@ -5,4 +5,7 @@ export const getters: GetterTree<RootState, RootState> = {
   isModal(state) {
     return state.isModal;
   },
+  isLoad(state) {
+    return state.isLoad;
+  },
 };

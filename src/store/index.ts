@@ -10,6 +10,7 @@ import { getters } from "../store/getters";
 
 const state: RootState = {
   isModal: false,
+  isLoad: false,
 };
 
 const store: StoreOptions<RootState> = createStore({
