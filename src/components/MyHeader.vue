@@ -56,7 +56,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  margin-bottom: 40px;
 
   .search-icon {
     cursor: pointer;
