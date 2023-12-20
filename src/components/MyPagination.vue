@@ -2,7 +2,7 @@
   <vue-awesome-paginate
     :total-items="total ? total : 0"
     :items-per-page="15"
-    :max-pages-shown="5"
+    :max-pages-shown="innerWidth <= 500 ? 3 : 5"
     v-model="currentPage"
     :on-click="onClickHandler"
   />
@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       currentPage: 1,
+      innerWidth: window.innerWidth,
     };
   },
   computed: {
@@ -28,6 +29,9 @@ export default {
       this.$router.push({ query: currentQuery });
       window.scrollTo(0, 0);
     },
+    handleInnerWidth() {
+      this.innerWidth = window.innerWidth;
+    },
   },
   watch: {
     "$route.query.page"(newPage) {
@@ -39,6 +43,12 @@ export default {
     "$route.query.search"(newSearch) {
       if (newSearch) this.currentPage = 1;
     },
+  },
+  mounted() {
+    window.addEventListener("resize", this.handleInnerWidth);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.handleInnerWidth);
   },
 };
 </script>

@@ -64,7 +64,7 @@ export default {
     background-image: linear-gradient(to right, #eee, #aaa);
     min-height: 300px;
     max-height: 300px;
-    max-width: 200px;
+    width: 200px;
   }
 }
 </style>
