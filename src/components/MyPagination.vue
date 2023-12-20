@@ -20,7 +20,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("comicsModule", ["comics", "total"]),
+    ...mapGetters("comicsModule", ["comics", "total", "page"]),
   },
   methods: {
     onClickHandler() {
@@ -32,10 +32,13 @@ export default {
     handleInnerWidth() {
       this.innerWidth = window.innerWidth;
     },
+    getCurrentAfterReload() {
+      const page = this.$route.query.page;
+      this.currentPage = page ? +page + 1 : 1;
+    },
   },
   watch: {
     "$route.query.page"(newPage) {
-      console.log(newPage);
       if (newPage === "0" || newPage === undefined) {
         this.currentPage = 1;
       }
@@ -46,6 +49,7 @@ export default {
   },
   mounted() {
     window.addEventListener("resize", this.handleInnerWidth);
+    this.getCurrentAfterReload();
   },
   unmounted() {
     window.removeEventListener("resize", this.handleInnerWidth);
