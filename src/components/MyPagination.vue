@@ -1,7 +1,7 @@
 <template>
   <vue-awesome-paginate
     :total-items="total ? total : 0"
-    :items-per-page="20"
+    :items-per-page="15"
     :max-pages-shown="5"
     v-model="currentPage"
     :on-click="onClickHandler"
@@ -26,6 +26,7 @@ export default {
       const currentQuery = { ...this.$route.query };
       currentQuery.page = this.currentPage - 1 + "";
       this.$router.push({ query: currentQuery });
+      window.scrollTo(0, 0);
     },
   },
   watch: {

@@ -1,7 +1,8 @@
 <template>
   <router-link :to="{ path: '/comics', query: { id: id } }">
     <div class="card">
-      <img loading="lazy" :src="`${thumb}.jpg`" alt="" />
+      <!-- <img loading="lazy" :src="`${thumb}.jpg`" alt="" /> -->
+      <MyImage :src="`${thumb}.jpg`" />
       <h3>{{ title }}</h3>
 
       <p v-if="descrption">{{ descrption?.slice(0, 60) }}...</p>
@@ -15,9 +16,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import MyImage from "./MyImage.vue";
 import type { TextObject } from "@/views/comicsInterfaces";
 
 export default defineComponent({
+  components: {
+    MyImage,
+  },
   props: {
     thumb: String,
     id: Number,

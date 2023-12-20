@@ -9,8 +9,8 @@ export const actions: ActionTree<ComicsState, RootState> = {
     try {
       const response = await instance.get("/comics", {
         params: {
-          offset: Number(state.page) * 20,
-          limit: 20,
+          offset: Number(state.page) * 15,
+          limit: 15,
           noVariants: true,
           format: state.filter,
           titleStartsWith: state.search,
